@@ -1,0 +1,19 @@
+{
+  "name": "ai-homeserve-uk-dialogflow-cx",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:speak-to-agent": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "@google-cloud/dialogflow-cx": "^3.7.0",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/uuid": "^9.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "uuid": "^9.0.0"
+  }
+}
