@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test:speak-to-agent": "tsx src/main.ts"
+    "start": "tsx src/main.ts"
   },
   "dependencies": {
     "@google-cloud/dialogflow-cx": "^3.7.0",
