@@ -62,7 +62,7 @@ export async function testGroup1() {
   );
 
   await runTest(
-    "3. ask for agent 2 times across the call - not consecutively: transfers to escalate page",
+    "3. ask for agent once across the call: agent_requested should be true",
     async () => {
       const test = await Test.init();
 
@@ -76,10 +76,23 @@ export async function testGroup1() {
 
       await test.say("yes"); // ID&V confirm post code
 
-      const result = test.getLastResult();
       const reporting_params = test.getReportingParams();
-      console.log(result.currentPage);
-      console.log(reporting_params);
+      const sessionInfo = test.getSessionInfo();
+
+      assert(
+        reporting_params.reporting_verification_status === true,
+        "Expected reporting_verification_status=true in session parameters",
+      );
+
+      assert(
+        reporting_params.reporting_triage_status === true,
+        "Expected reporting_triage_status=true in session parameters",
+      )
+
+      assert(
+        sessionInfo.agent_requested === true,
+        "Expected agent_requested=true in session parameters",
+      )
     },
   );
 }
